@@ -7,11 +7,14 @@ export function OPTIONS() {
 }
 
 export async function GET() {
+  // findMany tương ứng với lệnh SELECT * FROM brands
+  // Chúng ta có thể thêm where vào trong dấu {} để lọc dữ liệu nếu cần
   try {
     const brands = await prisma.brand.findMany({
       orderBy: { id: "asc" },
     });
 
+    // Trả về respone dạng JSON cùng với header CORS
     return NextResponse.json(brands, {
       headers: corsHeaders,
     });
