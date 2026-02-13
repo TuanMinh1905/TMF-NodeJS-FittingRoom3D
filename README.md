@@ -1,23 +1,17 @@
 
-# Fashion CRUD — Local First (Nuxt 3 + Next.js + SQL Server)
+# Fashion CRUD — Local First (NextJS + NodeJS + MongoDB + Docker + Deploy Public)
 
-**Mục tiêu:** chạy Frontend (Nuxt 3) và Backend (Next.js + Prisma) **trực tiếp trên máy**. Database: **SQL Server**.
+**Mục tiêu:** Từ Project TLCN với các chức năng cơ bản với Bộ ba FE-Nuxt; BE-Next; DB-SQL
 
-> Không dùng Docker cho FE/BE. Riêng SQL Server bạn có thể cài **bản Developer** (Windows) hoặc dùng **Docker chỉ cho DB** nếu bạn ở macOS/Linux.
-
----
-
-## 0) Cài công cụ cần thiết
-
-### A. Runtime & IDE
-- **Node.js 20 LTS** (khuyên cài qua **nvm**/**Volta**)
-- **VS Code** + extensions: *ESLint*, *Prettier*, *Prisma*
-- Trình REST: *Thunder Client* (VS Code) hoặc *Postman*
-
-### B. SQL Server + công cụ quản lý
-- **Windows**: **SQL Server Developer** + **SSMS** (hoặc **Azure Data Studio**).
-- **macOS/Linux**: dùng **Docker** cho SQL Server hoặc WSL/VM.
-- Cài **sqlcmd** (mssql-tools) để chạy script nhanh.
+## 0) Note ghi chú cần làm
+- Lưu tạm trên giao diện -> Backend gọi xử lí
+- Tính phí ship ( Chức năng ship ) - Nhấn mạnh phân tích thiết kế hoàn chỉnh 
+- Sau tết hoàn thiện đầy đủ chức năng 
+- Từ nay tới sau Tết hoàn thiện thử đồ ảo demo ( Phải có đủ khả năng để thử đồ ). 
+- Tuần đầu sau Tết phải mô phỏng thử xem model này sử dụng được không
+- Trước khi cuối học kì tạo trên drive để kê khai đề tài NCKH. Đề tài là Phòng thử đồ ảo. Thầy sẽ là người xác nhận
+- Làm 2 trong 1 làm là vừa KLTN vừa NCKH ( Phải tự tìm hiểu cái NCKH )
+## 1) Note ghi chú đã làm
 
 ---
 
@@ -39,39 +33,3 @@ IF DB_ID('FashionDB') IS NULL CREATE DATABASE FashionDB; GO
 ```
 
 ---
-
-## 2) Backend — Next.js + Prisma
-
-```bash
-cd apps/backend-next
-cp .env.example .env
-npm i
-npx prisma generate
-npx prisma migrate dev --name init
-npm run seed
-npm run dev    # http://localhost:3000
-```
-
-**API:** `/api/products`, `/api/categories`, `/api/brands` (CRUD, đã có CORS).
-
----
-
-## 3) Frontend — Nuxt 3
-
-```bash
-cd ../frontend-nuxt
-npm i
-NUXT_PUBLIC_API_BASE=http://localhost:3000/api npm run dev   # http://localhost:5173
-```
-
-Mở **http://localhost:5173/products** để CRUD.
-
----
-
-## 4) Gợi ý luyện tập
-- Thêm `description`, `thumbnail` cho Product → migrate, sửa form.
-- Thêm search, filter theo brand/category.
-- Hiển thị lỗi validate từ BE (Zod) ở FE.
-
-## 5) Note công cụ
-- link kiếm font : https://icon-sets.iconify.design/?query=branch
