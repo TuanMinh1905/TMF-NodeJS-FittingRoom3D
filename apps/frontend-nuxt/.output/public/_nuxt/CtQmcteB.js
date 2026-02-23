@@ -1,1 +1,0 @@
-const o=(r,t="vi-VN")=>new Intl.NumberFormat(t,{style:"currency",currency:"VND"}).format(r).replace(/\./g,",").replace("₫","").trim();function n(r,t){return new RegExp(`(^|-)${r.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}(?:-|$)`).test(t)}export{o as f,n as s};

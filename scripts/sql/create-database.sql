@@ -1,1 +1,0 @@
-IF DB_ID('FashionDB') IS NULL CREATE DATABASE FashionDB; GO
