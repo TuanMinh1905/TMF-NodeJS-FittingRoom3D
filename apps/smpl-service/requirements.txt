@@ -1,0 +1,15 @@
+# ===== SMPL Python Microservice — Dependencies =====
+# pip install -r requirements.txt
+#
+# Lưu ý: chumpy chỉ cần nếu load file SMPL .pkl gốc
+# Nếu chạy procedural fallback thì chỉ cần numpy + fastapi + uvicorn
+
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+numpy>=1.24.0,<2.0
+pydantic>=2.0
+chumpy>=0.70
+
+# Optional: nếu muốn dùng SMPL .pkl gốc
+# smplx>=0.1.28
+# torch>=2.0  (smplx dependency)
